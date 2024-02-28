@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Add Data</title>
+</head>
+
+<body>
+    <h1>Add Data</h1>
+    <form action="/add" method="post">
+        <div class="input-wrapper">
+            <div class="kiri">
+                <label for="nama">Name:</label>
+                <input type="text" id="nama" name="nama" required>
+                <label for="class">Class:</label>
+                <select id="kelas" name="kelas" required>
+                    <option value="XI RPL" id="kelas" name="kelas">XI RPL</option>
+                    <option value="XI TKJ" id="kelas" name="kelas">XI TKJ</option>
+                    <option value="XI KES" id="kelas" name="kelas">XI KES</option>
+                    <option value="XI TKR" id="kelas" name="kelas">XI TKR</option>
+                    <option value="XI TBSM" id="kelas" name="kelas">XI TBSM</option>
+                </select>
+                <label for="hobi">Hobi:</label>
+                <input type="text" id="hobi" name="hobi" required>
+                <label for="nomor">Nomor:</label>
+                <input placeholder="+62 xxx xxxx xxx" type="text" id="nomor" name="nomor" onkeyup="validateInput(event)" required>
+                <label for="alamat">Alamat:</label>
+                <input type="text" id="alamat" name="alamat" required>
+            </div>
+            <div class="kanan">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" onsubmit="validateEmailAndSubmit(event)" required>
+                <label for="gender">Jenis Kelamin:</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male" id="gender" name="gender">Male</option>
+                    <option value="Female" id="gender" name="gender">Female</option>
+                </select>
+                <label for="umur">Umur:</label>
+                <input type="text" id="umur" name="umur" onkeyup="validateInput(event)" required>
+                <label for="nilai">Nilai:</label>
+                <input type="text" id="nilai" name="nilai" onkeyup="validateInput(event)" required>
+                <label for="nama_orangtua">Nama Orang Tua:</label>
+                <input type="text" id="nama_orangtua" name="nama_orangtua" required>
+            </div>
+        </div>
+        <button class="primary-button" type="submit">Update</button>
+    </form>
+    <a href="/" class="primary-button">Back to Data Table</a>
+    <script>
+        function validateInput(event) {
+            const input = event.target;
+            const inputValue = input.value;
+            const regex = /^[0-9]+$/;
+
+            if (!regex.test(inputValue)) {
+                input.value = inputValue.replace(/[^0-9]/g, '');
+
+            }
+        }
+    </script>
+</body>
+
+</html>

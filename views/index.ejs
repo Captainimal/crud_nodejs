@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Node.js CRUD | JEVON ALANA</title>
+</head>
+
+<body>
+
+    <a href="/add" class="primary-button">Add Data</a>
+
+    <div class="card">
+        <table>
+            <thead>
+                <th class="special">Nama</th>
+                <th>Umur</th>
+                <th>Nomor</th>
+                <th>Kelas</th>
+                <th>Alamat</th>
+                <th>Email</th>
+                <th>Jenis Kelamin</th>
+                <th>Hobi</th>
+                <th>Nilai</th>
+                <th>Nama Orang Tua</th>
+                <th class="over special2">Operasi</th>
+            </thead>
+            <tbody>
+                <% data.forEach(item=> { %>
+                    <tr>
+                        <td>
+                            <%= item.nama %>
+                        </td>
+                        <td>
+                            <%= item.umur %>               
+                        </td>
+                        <td>
+                            <%= item.nomor%>
+                        </td>
+                        <td>
+                            <%= item.kelas %>
+                        </td>
+                        <td>
+                            <%= item.alamat %>
+                        </td>
+                        <td>
+                            <%= item.email %>
+                        </td>
+                        <td>
+                            <%= item.gender %>
+                        </td>
+                        <td>
+                            <%= item.hobi %>
+                        </td>
+                        <td>
+                            <%= item.nilai %>
+                        </td>
+                        <td>
+                            <%= item.nama_orangtua%>
+                        </td>
+                        <td class="over">
+                            <div class="button-wrapper">
+                                <a href="/update/<%= item.student_id %>" class="update-button">Update</a>
+                                <a onclick="confirmation()" href="/delete/<%= item.student_id %>" class="default-button">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function confirmation() {
+            confirm("Are you sure want to delete " + "<%= data.student_id %>?");
+            return;
+        }
+    </script>
+</body>
+
+</html>
